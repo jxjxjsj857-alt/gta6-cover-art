@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Boulevard Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <header class="brand">
+      <h1>Neon Boulevard <span>Cover Studio</span></h1>
+      <p>Turn any photo and a caption into poster-style cover art, exported as a PNG.</p>
+    </header>
+
+    <section class="group" id="dropzone" aria-label="Photos">
+      <h2>Photos</h2>
+      <p class="hint">Drop photos here, or pick up to 6. Tap a thumbnail to put it in the selected panel. Drag the preview to pan, scroll to zoom.</p>
+      <div class="tray" id="tray"></div>
+      <div class="row">
+        <label class="file-button">Add photos
+          <input id="photo" type="file" accept="image/*" multiple>
+        </label>
+        <button id="add-sample" type="button">Load samples</button>
+      </div>
+      <div class="row">
+        <label class="slider-label">Zoom panel
+          <input id="zoom" type="range" min="1" max="3" step="0.05" value="1">
+        </label>
+        <button id="flip" type="button">Flip panel</button>
+      </div>
+      <button id="fill-all" type="button">Fill all panels with this photo</button>
+    </section>
+
+    <section class="group" aria-label="Layout">
+      <h2>Layout</h2>
+      <div class="choices" role="group" aria-label="Layout choices">
+        <button type="button" data-layout="grid9" class="active">9-Panel Grid</button>
+        <button type="button" data-layout="hero3">Hero + 3</button>
+        <button type="button" data-layout="grid4">4-Panel Grid</button>
+        <button type="button" data-layout="full">Full Bleed</button>
+        <button type="button" data-layout="collage">Tilted Collage</button>
+      </div>
+    </section>
+
+    <section class="group" aria-label="Colour grade">
+      <h2>Colour grade</h2>
+      <div class="choices" role="group" aria-label="Colour grade choices">
+        <button type="button" data-grade="sunset" class="active">Vice Sunset</button>
+        <button type="button" data-grade="neon">Neon Night</button>
+        <button type="button" data-grade="golden">Golden Hour</button>
+        <button type="button" data-grade="noir">Noir</button>
+      </div>
+      <div class="toggles">
+        <label><input id="grain" type="checkbox" checked> Film grain</label>
+        <label><input id="vignette" type="checkbox" checked> Vignette</label>
+        <label><input id="frame" type="checkbox" checked> White frame</label>
+      </div>
+    </section>
+
+    <section class="group" aria-label="Lettering">
+      <h2>Lettering</h2>
+      <label>Title
+        <input id="title" type="text" maxlength="30" value="Sunset Heist">
+      </label>
+      <label>Neon subtitle
+        <input id="subtitle" type="text" maxlength="48" value="neon nights on the boulevard">
+      </label>
+      <label>Badge ribbon
+        <input id="badge" type="text" maxlength="24" value="VICE CITY NIGHTS">
+      </label>
+    </section>
+
+    <section class="group" aria-label="Export">
+      <h2>Export PNG</h2>
+      <div class="choices export-choices">
+        <button type="button" data-export="square">Square 1080 × 1080</button>
+        <button type="button" data-export="portrait">Portrait 1080 × 1350</button>
+        <button type="button" data-export="wide">Wide 1920 × 1080</button>
+      </div>
+      <p id="status" role="status">Ready.</p>
+    </section>
+  </section>
+
+  <section class="preview" aria-label="Live preview">
+    <canvas id="cover" width="1080" height="1080"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
